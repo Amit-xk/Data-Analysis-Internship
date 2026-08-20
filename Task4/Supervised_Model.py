@@ -570,6 +570,3 @@ print(prediction_path)
 print("\nFigures saved in:")
 print(figures_path)
 
-print("\n" + "=" * 70)
-print("WEEK 4 SUPERVISED LEARNING COMPLETED SUCCESSFULLY")
-print("=" * 70)
