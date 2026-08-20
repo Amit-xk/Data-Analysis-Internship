@@ -26,9 +26,8 @@ input_path = os.path.join(
 
 df = pd.read_csv(input_path)
 
-print("=" * 70)
 print("1. DATASET LOADED")
-print("=" * 70)
+
 
 print("\nFirst 5 rows:")
 print(df.head())
@@ -47,9 +46,8 @@ features = [
 
 X_df = df[features].copy()
 
-print("\n" + "=" * 70)
 print("2. CLUSTERING FEATURES")
-print("=" * 70)
+
 
 print("\nSelected features:")
 print(features)
@@ -75,13 +73,11 @@ scaler = StandardScaler()
 
 X = scaler.fit_transform(X_df)
 
-print("\n" + "=" * 70)
 print("3. FEATURE STANDARDIZATION")
-print("=" * 70)
+
 
 print("\nFeatures standardized successfully.")
 
-# --- FIX 1: Use project_path for Figures ---
 figures_path = os.path.join(
     project_path,
     "Figures"
@@ -112,9 +108,8 @@ for k in ks:
         )
     )
 
-print("\n" + "=" * 70)
 print("4. TESTING DIFFERENT NUMBERS OF CLUSTERS")
-print("=" * 70)
+
 
 print("\nK values:")
 print(
@@ -150,9 +145,8 @@ labels = kmeans.fit_predict(X)
 X_df["Cluster"] = labels
 
 
-print("\n" + "=" * 70)
 print("5. K-MEANS CLUSTERING RESULTS")
-print("=" * 70)
+
 print("\nCluster sizes:")
 
 print(
@@ -249,9 +243,8 @@ explained_variance = (
     pca.explained_variance_ratio_
 )
 
-print("\n" + "=" * 70)
 print("6. PCA ANALYSIS")
-print("=" * 70)
+
 
 print("\nExplained variance by PC1:")
 print(
@@ -319,9 +312,8 @@ hierarchical_labels = (
     hierarchical.fit_predict(X)
 )
 
-print("\n" + "=" * 70)
 print("7. HIERARCHICAL CLUSTERING")
-print("=" * 70)
+
 
 print("\nHierarchical cluster sizes:")
 
@@ -429,9 +421,8 @@ plt.savefig(
 
 plt.show()
 
-print("\n" + "=" * 70)
 print("8. CLUSTERING METHOD COMPARISON")
-print("=" * 70)
+
 
 print("\nK-Means silhouette score:")
 

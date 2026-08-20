@@ -28,9 +28,8 @@ file_path = os.path.join(
 
 df = pd.read_csv(file_path)
 
-print("=" * 70)
 print("1. DATASET LOADED")
-print("=" * 70)
+
 
 print("\nFirst 5 rows:")
 print(df.head())
@@ -38,9 +37,8 @@ print(df.head())
 print("\nDataset shape:")
 print(df.shape)
 
-print("\n" + "=" * 70)
 print("2. FEATURE ENGINEERING")
-print("=" * 70)
+
 
 # Convert Date to datetime
 df["Date"] = pd.to_datetime(
@@ -75,9 +73,8 @@ print(
     ]
 )
 
-print("\n" + "=" * 70)
 print("3. PREDICTION PROBLEM")
-print("=" * 70)
+
 
 print("\nProblem:")
 print(
@@ -122,9 +119,8 @@ data = data.dropna(
 X = data[features]
 y = data[target]
 
-print("\n" + "=" * 70)
 print("4. DATA PREPARATION")
-print("=" * 70)
+
 
 print("\nFeature matrix shape:")
 print(X.shape)
@@ -142,9 +138,8 @@ X_train, X_test, y_train, y_test = train_test_split(
     random_state=42
 )
 
-print("\n" + "=" * 70)
 print("5. TRAIN-TEST SPLIT")
-print("=" * 70)
+
 
 print("\nTraining samples:")
 print(len(X_train))
@@ -206,9 +201,9 @@ models = {
     ])
 }
 
-print("\n" + "=" * 70)
+
 print("6. MODEL TRAINING AND EVALUATION")
-print("=" * 70)
+
 
 results = []
 
@@ -275,9 +270,8 @@ results_df = results_df.sort_values(
     "RMSE"
 )
 
-print("\n" + "=" * 70)
 print("7. MODEL COMPARISON")
-print("=" * 70)
+
 
 print(results_df)
 
@@ -298,16 +292,15 @@ best_predictions = best_model.predict(
     X_test
 )
 
-print("\n" + "=" * 70)
+
 print("8. BEST MODEL")
-print("=" * 70)
+
 
 print("\nBest model:")
 print(best_name)
 
-print("\n" + "=" * 70)
 print("9. 5-FOLD CROSS-VALIDATION")
-print("=" * 70)
+
 
 kf = KFold(
     n_splits=5,
@@ -458,9 +451,8 @@ if best_name == "Random Forest":
         ascending=False
     )
 
-    print("\n" + "=" * 70)
     print("10. RANDOM FOREST FEATURE IMPORTANCE")
-    print("=" * 70)
+    
 
     print("\nFeature importance:")
     print(
@@ -521,9 +513,8 @@ prediction_results.to_csv(
     index=False
 )
 
-print("\n" + "=" * 70)
 print("11. FINAL SUPERVISED LEARNING SUMMARY")
-print("=" * 70)
+
 
 print("\nTarget:")
 print(target)

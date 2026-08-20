@@ -18,9 +18,8 @@ input_path = os.path.join(
 
 df = pd.read_csv(input_path)
 
-print("=" * 70)
 print("1. DATASET LOADED")
-print("=" * 70)
+
 
 print("\nFirst 5 rows:")
 print(df.head())
@@ -31,9 +30,8 @@ print(df.shape)
 print("\nColumn names:")
 print(df.columns.tolist())
 
-print("\n" + "=" * 70)
 print("2. INITIAL DATA ANALYSIS")
-print("=" * 70)
+
 
 print("\nDataset information:")
 df.info()
@@ -41,9 +39,8 @@ df.info()
 print("\nDescriptive statistics:")
 print(df.describe())
 
-print("\n" + "=" * 70)
 print("3. DATE AND TIME PROCESSING")
-print("=" * 70)
+
 
 # Convert Date
 df["Date"] = pd.to_datetime(
@@ -80,9 +77,8 @@ print(
     ].head()
 )
 
-print("\n" + "=" * 70)
 print("4. CREATING TIME FEATURES")
-print("=" * 70)
+
 
 df["Year"] = df["DateTime"].dt.year
 df["Month"] = df["DateTime"].dt.month
@@ -106,9 +102,8 @@ print(
     ].head()
 )
 
-print("\n" + "=" * 70)
 print("5. MISSING VALUE ANALYSIS")
-print("=" * 70)
+
 
 missing_values = df.isnull().sum()
 
@@ -130,9 +125,8 @@ pollution_columns = [
     "NO2(GT)"
 ]
 
-print("\n" + "=" * 70)
 print("6. BASIC STATISTICAL ANALYSIS")
-print("=" * 70)
+
 
 print("\nPollution statistics:")
 print(
@@ -149,9 +143,8 @@ os.makedirs(
     exist_ok=True
 )
 
-print("\n" + "=" * 70)
 print("7. CO DISTRIBUTION")
-print("=" * 70)
+
 
 plt.figure(figsize=(10, 6))
 sns.histplot(df["CO(GT)"], bins=30, kde=True)
@@ -202,9 +195,8 @@ plt.show()
 
 monthly_pollution = df.groupby("Month")[pollution_columns].mean()
 
-print("\n" + "=" * 70)
 print("8. MONTHLY POLLUTION ANALYSIS")
-print("=" * 70)
+
 
 print("\nAverage pollution by month:")
 print(monthly_pollution)
@@ -222,9 +214,8 @@ plt.show()
 
 hourly_pollution = df.groupby("Hour")[pollution_columns].mean()
 
-print("\n" + "=" * 70)
 print("9. HOURLY POLLUTION ANALYSIS")
-print("=" * 70)
+
 
 print("\nAverage pollution by hour:")
 print(hourly_pollution)
@@ -240,9 +231,8 @@ plt.tight_layout()
 plt.savefig(os.path.join(figures_path, "hourly_co.png"))
 plt.show()
 
-print("\n" + "=" * 70)
 print("10. CORRELATION ANALYSIS")
-print("=" * 70)
+
 
 correlation_columns = [
     "CO(GT)", "NMHC(GT)", "C6H6(GT)", "NOx(GT)", "NO2(GT)", "T", "RH", "AH"
@@ -307,9 +297,8 @@ plt.show()
 
 average_pollution = df[pollution_columns].mean()
 
-print("\n" + "=" * 70)
 print("16. AVERAGE POLLUTION LEVELS")
-print("=" * 70)
+
 
 print("\nAverage concentration:")
 print(average_pollution)
@@ -323,9 +312,8 @@ plt.tight_layout()
 plt.savefig(os.path.join(figures_path, "average_pollution.png"))
 plt.show()
 
-print("\n" + "=" * 70)
 print("17. EXTREME POLLUTION OBSERVATIONS")
-print("=" * 70)
+
 
 print("\nHighest CO observations:")
 print(
@@ -334,9 +322,8 @@ print(
     .head(10)
 )
 
-print("\n" + "=" * 70)
 print("18. FINAL EDA SUMMARY")
-print("=" * 70)
+
 
 print("\nDataset shape:")
 print(df.shape)

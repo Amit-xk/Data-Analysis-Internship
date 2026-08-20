@@ -21,9 +21,8 @@ df = pd.read_csv(
     decimal=","
 )
 
-print("=" * 60)
 print("DATASET LOADED SUCCESSFULLY")
-print("=" * 60)
+
 
 df = df.dropna(axis=1, how="all")
 df = df.dropna(axis=0, how="all")
@@ -256,9 +255,9 @@ df.to_csv(
     index=False
 )
 
-print("\n" + "=" * 70)
+
 print("CLEANED DATASET SAVED SUCCESSFULLY")
-print("=" * 70)
+
 
 print("\nSaved file:")
 print(output_path)
